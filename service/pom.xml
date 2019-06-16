@@ -6,7 +6,6 @@
         <groupId>com.yang</groupId>
         <artifactId>spring-boot-dubbo</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
 
     <packaging>jar</packaging>

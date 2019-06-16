@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserRest {
 
-    @Reference(version = "11")
+    @Reference(version = "${dubbo.provider.version}")
     private UserService userService;
 
     @GetMapping("/getUserById/{id}")

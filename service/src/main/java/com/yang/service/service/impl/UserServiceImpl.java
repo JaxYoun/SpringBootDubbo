@@ -9,11 +9,12 @@ import org.apache.dubbo.config.annotation.Service;
  * @date: 2019/6/15 19:11
  * @description:
  */
-@Service(version = "11")
+@Service(version = "${dubbo.provider.version}")
 public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Integer id) {
+        System.out.println("---------" + id);
         User user = new User();
         user.setId(id);
         user.setAge(id);
