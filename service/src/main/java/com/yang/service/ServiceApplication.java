@@ -1,11 +1,14 @@
 package com.yang.service;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-//此处给注解添加排除属性，为了解决postgresql驱动导致的启动失败问题
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+/**
+ * 由于mapper在dao.jar包中，此处必须指定mapper类路径
+ */
+@SpringBootApplication
+@MapperScan("com.yang.dao.mapper")
 public class ServiceApplication {
 
     public static void main(String[] args) {

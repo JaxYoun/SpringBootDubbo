@@ -25,4 +25,14 @@ public class UserRest {
         return this.userService.getUser(id);
     }
 
+    @GetMapping("/updateUser/{id}/{name}/{age}")
+    public boolean updateUser(@PathVariable("id") Integer id, @PathVariable("name") String name, @PathVariable("age") Integer age) {
+        User user = User.builder()
+                .id(id)
+                .name(name)
+                .age(age)
+                .build();
+        return this.userService.updateUser(user);
+    }
+
 }

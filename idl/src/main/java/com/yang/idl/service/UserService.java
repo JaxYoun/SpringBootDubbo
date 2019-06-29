@@ -10,11 +10,19 @@ import com.yang.domain.entity.User;
 public interface UserService {
 
     /**
-     * 获取用户
+     * 根据id获取用户
      *
      * @param id
      * @return
      */
     User getUser(Integer id);
+
+    /**
+     * 更新用户
+     *
+     * @param user
+     * @return
+     */
+    boolean updateUser(User user);
 
 }
