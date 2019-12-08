@@ -1,5 +1,7 @@
 package com.yang.rest.rest;
 
+import com.yang.common.constant.BaiscConst;
+import com.yang.common.util.DateUtil;
 import com.yang.domain.entity.User;
 import com.yang.idl.service.UserService;
 import org.apache.dubbo.config.annotation.Reference;
@@ -17,12 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserRest {
 
-    @Reference(version = "${dubbo.provider.version}")
+    //引用服务
+    @Reference(interfaceClass = UserService.class, version = "${dubbo.provider.version}")
     private UserService userService;
 
     @GetMapping("/getUserById/{id}")
     public User getUser(@PathVariable Integer id) {
+        System.out.println(this.function(() -> BaiscConst.UNDER_LINE));
         return this.userService.getUser(id);
+    }
+
+    private String function(DateUtil fun) {
+        return fun.doSomething();
     }
 
     @GetMapping("/updateUser/{id}/{name}/{age}")

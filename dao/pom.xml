@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.yang</groupId>
@@ -9,13 +8,12 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <packaging>jar</packaging>
-
     <groupId>com.yang</groupId>
     <artifactId>dao</artifactId>
     <version>${version}</version>
     <name>dao</name>
-    <description>Demo project for Spring Boot</description>
+    <description>dao</description>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -46,12 +44,6 @@
             <artifactId>domain</artifactId>
             <version>${version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -72,14 +64,6 @@
                 </includes>
             </resource>
         </resources>
-
-        <!-- 注释掉spring-boot的maven打包插件是避免将dao打成可执行jar -->
-        <!--<plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>-->
     </build>
 
 </project>

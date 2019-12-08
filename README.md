@@ -1,18 +1,21 @@
 # SpringBootDubbo
 1. 一个spring-boot集成dubbo的多模块项目
 2. 包括rest、idl、service、dao、domain、common六个子模块
-3. 其中rest和service是独立微服务，rest是消费者，service是生产者
+3. 其中rest为传统的SpringBootWeb服务，service为基于netty的Dubbo服务；rest是消费者，service是生产者
 4. 其他模块为这两个模块提供直接或间接依赖
-5. 构建了项目结构，完成打包发布的配置，rest和service两个独立的服务可以启动，以zookeeper作为注册中心，dubbo的集成未完成，并已实现mybatis-postgresql的数据交互
-6. spring-boot多模块项目中，比如domain、dao、idl等不需要打为棵执行jar包的项目，需要注释掉pom中的spring-boot打包插件，
-可以删掉启动类等不需要的部分，只保留pom、有用代码、有用的静态文件。
+5. 构建了项目结构，完成打包发布的配置，rest和service两个独立的服务可以启动，以zookeeper作为注册中心，dubbo的集成以完成，并已实现mybatis-postgresql的数据交互
+6. spring-boot多模块项目中，比如domain、dao、idl等不需要打为棵执行jar包的项目，需要注释掉pom中的spring-boot打包插件，打为普通jar包，可以删掉启动类、配置文件等不需要的部分，只保留pom、有用代码、有用的静态文件。
 7. 需要多模块项目需要处理项目打包及依赖问题：
 ~~~ 
-1.涉及到dao中的xml文件，则需要以静态资源的形式打进dao.jar包，需要在其pom中设置静态资源。
-2.service依赖dao，必须在启动类上指定mapper接口类的扫描位置。
-3.同时需要在配置文件中指定xml文件及entity类的路径，必不可少。
+1. 涉及到dao中的xml文件，则需要以静态资源的形式打进dao.jar包，需要在其pom中设置静态资源。
+2. service依赖dao，必须在启动类上指定mapper接口类的扫描位置。
+3. 同时需要在配置文件中指定xml文件及entity类的路径，必不可少。
 ~~~
-
+# zookeeper服务注册中心
+* 从apache官方下载zookeeper
+* 解压，将/config/zoo_sample.cfg拷贝为zoo.cfg
+* 并将其中的dataDir=/tmp/zookeeper修改为你的本地存储目录，如：dataDir=../zkData
+* 执行zkServer.cmd或者zkServer.sh即可运行单实例的zookeeper
 # dubbo-admin的部署
 1. 从dubbo生态的github下载dubbo-admin的release版源码包dubbo-admin-0.2.0.zip
 2. 解压得到dubbo-admin-0.2.0目录，dubbo-admin-0.2.0\dubbo-admin-server\src\main\resources\application.properties

@@ -1,5 +1,6 @@
 package com.yang.service.service.impl;
 
+import com.yang.common.constant.BaiscConst;
 import com.yang.dao.mapper.UserMapper;
 import com.yang.domain.entity.User;
 import com.yang.idl.service.UserService;
@@ -12,7 +13,7 @@ import javax.annotation.Resource;
  * @date: 2019/6/15 19:11
  * @description:
  */
-@Service(version = "${dubbo.provider.version}")
+@Service(interfaceClass = UserService.class, version = "${dubbo.provider.version}")
 public class UserServiceImpl implements UserService {
 
     @Resource
@@ -20,6 +21,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Integer id) {
+        System.out.println(BaiscConst.UNDER_LINE);
         return this.userMapper.getUserById(id);
     }
 
